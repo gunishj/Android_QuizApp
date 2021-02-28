@@ -21,21 +21,22 @@ class MainActivity : AppCompatActivity() {
         // To hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        // TODO (STEP 3: Now validate name is entered or not and launch the QuizQuestion Activity.)
-        // START
         btn_start.setOnClickListener {
 
             if (et_name.text.toString().isEmpty()) {
 
                 Toast.makeText(this@MainActivity, "Please enter your name", Toast.LENGTH_SHORT)
-                        .show()
+                    .show()
             } else {
 
                 val intent = Intent(this@MainActivity, QuizQuestionsActivity::class.java)
+                // TODO (STEP 2: Pass the name through intent using the constant variable which we have created.)
+                // START
+                intent.putExtra(Constants.USER_NAME, et_name.text.toString())
+                // END
                 startActivity(intent)
                 finish()
             }
-            // END
         }
     }
 }
