@@ -6,16 +6,16 @@ Repository for the flags quiz Android App for performing basic operations.This r
 
   <table>
       <tr>
-       <td><img src="/docs/8.jpg"></td>
-       <td><img src="/docs/7.jpg"></td>
-        <td><img src="/docs/6.jpg"></td>
-       <td><img src="/docs/5.jpg"></td>
+       <td><img src="/docs/Photos/8.jpg"></td>
+       <td><img src="/docs/Photos/7.jpg"></td>
+        <td><img src="/docs/Photos/6.jpg"></td>
+       <td><img src="/docs/Photos/5.jpg"></td>
       </tr>
   <tr>
-    <td><img src="/docs/4.jpg"></td>
-       <td><img src="/docs/3.jpg"></td>
-       <td><img src="/docs/2.jpg"></td>
-    <td><img src="/docs/1.jpg"></td>
+    <td><img src="/docs/Photos/4.jpg"></td>
+       <td><img src="/docs/Photos/3.jpg"></td>
+       <td><img src="/docs/Photos/2.jpg"></td>
+    <td><img src="/docs/Photos/1.jpg"></td>
       </tr>
   </table>
   
