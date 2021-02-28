@@ -1,4 +1,4 @@
-package com.quizapp
+package com.cricket.quizapp
 
 import org.junit.Test
 
