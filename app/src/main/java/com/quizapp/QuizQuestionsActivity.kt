@@ -16,6 +16,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mQuestionsList: ArrayList<Question>? = null
 
     private var mSelectedOptionPosition: Int = 0
+    // TODO (STEP 1: Add a variable for calculating the correct answers.)
+    // START
+    private var mCorrectAnswers: Int = 0
+    // END
 
     /**
      * This function is auto created by Android when the Activity Class is created.
@@ -34,11 +38,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_option_two.setOnClickListener(this)
         tv_option_three.setOnClickListener(this)
         tv_option_four.setOnClickListener(this)
-
-        // TODO(STEP 1: Adding a click event for submit button.)
-        // START
         btn_submit.setOnClickListener(this)
-        // END
     }
 
     override fun onClick(v: View?) {
@@ -65,8 +65,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 selectedOptionView(tv_option_four, 4)
             }
 
-            // TODO(STEP 2: Adding a click event for submit button. And change the questions and check the selected answers.)
-            // START
             R.id.btn_submit -> {
 
                 if (mSelectedOptionPosition == 0) {
@@ -81,7 +79,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         else -> {
 
-                            Toast.makeText(this@QuizQuestionsActivity, "You have successfully completed the quiz.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@QuizQuestionsActivity, "You have successfully completed the quiz. Your Score is : $mCorrectAnswers", Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
@@ -91,6 +89,12 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     if (question!!.correctAnswer != mSelectedOptionPosition) {
                         answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
                     }
+                    // TODO (STEP 2: Increase the count of correct answer by 1 if the answer is right.)
+                    // START
+                    else {
+                        mCorrectAnswers++
+                    }
+                    // END
 
                     // This is for correct answer
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
@@ -116,14 +120,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         defaultOptionsView()
 
-        // TODO (STEP 6: Check here if the position of question is last then change the text of the button.)
-        // START
         if (mCurrentPosition == mQuestionsList!!.size) {
             btn_submit.text = "FINISH"
         } else {
             btn_submit.text = "SUBMIT"
         }
-        // END
 
         progressBar.progress = mCurrentPosition
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.getMax()
@@ -176,8 +177,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    // TODO (STEP 3: Create a function for answer view.)
-    // START
     /**
      * A function for answer view which is used to highlight the answer is wrong or right.
      */
@@ -211,5 +210,4 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-    // END
 }
